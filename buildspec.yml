@@ -6,20 +6,20 @@ phases:
       - echo command install
     finally:
       - echo command finally install
+
   pre_build:
     commands:
       - echo command pre_build
     finally:
       - echo command finally pre_build
+
   build:
     commands:
       - echo command build
-      - ls -la
       - mvn package
-      - ls -la
-      - ls -la target
     finally:
       - echo command finally build
+
   post_build:
     commands:
       - echo command post_build

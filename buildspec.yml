@@ -13,6 +13,7 @@ phases:
     commands:
       - echo "Entered the post-build phase"
 #      - mv target/deploy ./
+
 artifacts:
   files:
     - target/microservice-war-0.0.1-SNAPSHOT

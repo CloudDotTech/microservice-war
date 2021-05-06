@@ -3,49 +3,40 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo command
-      - echo command
+      - echo command install
+      - pwd
+      - ls -la
     finally:
-      - echo command
-      - echo command
+      - echo command install
   pre_build:
     commands:
-      - echo command
-      - echo command
+      - echo command pre_build
     finally:
-      - echo command
-      - echo command
+      - echo command pre_build
   build:
     commands:
-      - echo command
-      - echo command
+      - echo command build
       - mvn clean install
     finally:
-      - echo command
-      - echo command
+      - echo command build
   post_build:
     commands:
-      - echo command
-      - echo command
+      - echo command post_build
     finally:
-      - echo command
-      - echo command
+      - echo command post_build
 reports:
   report-group-name-or-arn:
     files:
-      - echo location
-      - echo location
+      - echo location reports
 
 artifacts:
   files:
-    - echo location
-    - echo location
+    - echo location artifacts
   name: artifact-name
 
 cache:
   paths:
-    - echo path
-    - echo path
+    - echo path cache
 
 #version: 0.2
 #

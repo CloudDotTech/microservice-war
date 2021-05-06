@@ -19,6 +19,7 @@ phases:
     commands:
       - echo command
       - echo command
+      - mvn clean install
     finally:
       - echo command
       - echo command

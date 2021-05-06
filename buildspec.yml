@@ -35,19 +35,12 @@ reports:
     files:
       - echo location
       - echo location
-    base-directory: location
-    discard-paths: no | yes
-    file-format: report-format
+
 artifacts:
   files:
     - echo location
     - echo location
   name: artifact-name
-  discard-paths: no | yes
-  base-directory: location
-  exclude-paths: excluded paths
-  enable-symlinks: no | yes
-  s3-prefix: prefix
 
 cache:
   paths:

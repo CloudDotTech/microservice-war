@@ -30,11 +30,6 @@ artifacts:
   files:
     - echo location artifacts
     - deploy/**/*
-  name: artifact-name
-
-cache:
-  paths:
-    - echo path cache
 
 #version: 0.2
 #

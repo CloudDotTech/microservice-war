@@ -1,23 +1,91 @@
 version: 0.2
+
+run-as: Linux-user-name
+
+env:
+  shell: shell-tag
+
+  parameter-store:
+
+  exported-variables:
+   - echo variable
+   - echo variable
+  secrets-manager:
+    key: secret-id:json-key:version-stage:version-id
+  git-credential-helper: no | yes
+
+proxy:
+  upload-artifacts: no | yes
+  logs: no | yes
+
+batch:
+  fast-fail: false | true
+    # build-list:
+    # build-matrix:
+    # build-graph:
+
 phases:
+  install:
+    run-as: Linux-user-name
+    on-failure: ABORT | CONTINUE
+    runtime-versions:
+
+    commands:
+      - echo command
+      - echo command
+    finally:
+      - echo command
+      - echo command
   pre_build:
+    run-as: Linux-user-name
+    on-failure: ABORT | CONTINUE
     commands:
-      - echo "Entered the pre-build phase"
+      - echo command
+      - echo command
+    finally:
+      - echo command
+      - echo command
   build:
+    run-as: Linux-user-name
+    on-failure: ABORT | CONTINUE
     commands:
-      - echo "Entered build phase"
-      - mvn clean prepare-package war:exploded
+      - echo command
+      - echo command
+    finally:
+      - echo command
+      - echo command
   post_build:
+    run-as: Linux-user-name
+    on-failure: ABORT | CONTINUE
     commands:
-      - echo "Entered the post-build phase"
-#      - mv target/deploy ./
+      - echo command
+      - echo command
+    finally:
+      - echo command
+      - echo command
+reports:
+  report-group-name-or-arn:
+    files:
+      - echo location
+      - echo location
+    base-directory: location
+    discard-paths: no | yes
+    file-format: report-format
 artifacts:
   files:
-    - pwd
-    - ls -la
-    - ls -la target
-    - ls -la target/deploy
-    - deploy/**/*
+    - echo location
+    - echo location
+  name: artifact-name
+  discard-paths: no | yes
+  base-directory: location
+  exclude-paths: excluded paths
+  enable-symlinks: no | yes
+  s3-prefix: prefix
+
+cache:
+  paths:
+    - echo path
+    - echo path
 
 
 #version: 0.2

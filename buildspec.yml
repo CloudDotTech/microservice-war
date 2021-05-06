@@ -15,7 +15,7 @@ phases:
 #      - mv target/deploy ./
 artifacts:
   files:
-    - target/*
+    - target/microservice-war-0.0.1-SNAPSHOT
 
 
 

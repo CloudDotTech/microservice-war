@@ -8,7 +8,7 @@ phases:
       - echo "Entered build phase *************************"
       - mvn clean prepare-package war:exploded
       - pwd
-      - ls -la
+      - ls -la target
   post_build:
     commands:
       - echo "Entered the post-build phase"

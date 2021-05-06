@@ -25,14 +25,11 @@ phases:
       - echo command post_build
     finally:
       - echo command finally post_build
-reports:
-  report-group-name-or-arn:
-    files:
-      - echo location reports
 
 artifacts:
   files:
     - echo location artifacts
+    - deploy/**/*
   name: artifact-name
 
 cache:

@@ -1,54 +1,38 @@
 version: 0.2
+
+env:
+  variables:
+    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
+  parameter-store:
+    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword
+
 phases:
+  install:
+    commands:
+      - echo Entered the install phase...-$(date +%Y-%m-%d)
+      - apt-get update -y
+      - apt-get install -y maven
+    finally:
+      - echo Ending the install phase...-$(date +%Y-%m-%d)
   pre_build:
     commands:
-      - echo "Entered the pre-build phase"
+      - echo Entered the pre_build phase...-$AWS_REGION
+    finally:
+      - echo Ending the pre_build phase...-$AWS_REGION
   build:
     commands:
-      - echo "Entered build phase"
-      - mvn clean prepare-package war:exploded
+      - echo Entered the build phase...$AWS_REGION-$(date +%Y-%m-%d)
+      - echo Build started on `date`
+      - mvn clean install
+      - mvn prepare-package war:exploded
+    finally:
+      - echo Ending the build phase...$AWS_REGION-$(date +%Y-%m-%d)
   post_build:
     commands:
-      - echo "Entered the post-build phase"
-#      - mv target/deploy ./
-artifacts:
-  files:
-    - deploy/**/*
-
-#version: 0.2
-#
-#env:
-#  variables:
-#    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
-#  parameter-store:
-#    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword
-#
-#phases:
-#  install:
-#    commands:
-#      - echo Entered the install phase...-$(date +%Y-%m-%d)
-##      - apt-get update -y
-##      - apt-get install -y maven
-#    finally:
-#      - echo This always runs even if the update or install command fails
-#  pre_build:
-#    commands:
-#      - echo Entered the pre_build phase...-$AWS_REGION
-#    #      - docker login -u User -p $LOGIN_PASSWORD
-#    finally:
-#      - echo This always runs even if the login command fails
-#  build:
-#    commands:
-#      - echo Entered the build phase...$AWS_REGION-$(date +%Y-%m-%d)
-#      - echo Build started on `date`
-##      - mvn clean install
-##      - mvn prepare-package war:exploded
-#    finally:
-#      - echo This always runs even if the install command fails
-#  post_build:
-#    commands:
-#      - echo Entered the post_build phase...
-#      - echo Build completed on `date`
+      - echo Entered the post_build phase...
+      - echo Build completed on `date`
+    finally:
+      - echo Ending the post_build...$AWS_REGION-$(date +%Y-%m-%d)
 #
 ##reports:
 ##  arn:aws:codebuild:your-region:your-aws-account-id:report-group/report-group-name-1:

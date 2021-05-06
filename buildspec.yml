@@ -2,10 +2,6 @@ version: 0.2
 
 phases:
   install:
-    run-as: Linux-user-name
-    on-failure: ABORT | CONTINUE
-    runtime-versions:
-
     commands:
       - echo command
       - echo command
@@ -13,8 +9,6 @@ phases:
       - echo command
       - echo command
   pre_build:
-    run-as: Linux-user-name
-    on-failure: ABORT | CONTINUE
     commands:
       - echo command
       - echo command
@@ -22,8 +16,6 @@ phases:
       - echo command
       - echo command
   build:
-    run-as: Linux-user-name
-    on-failure: ABORT | CONTINUE
     commands:
       - echo command
       - echo command
@@ -31,8 +23,6 @@ phases:
       - echo command
       - echo command
   post_build:
-    run-as: Linux-user-name
-    on-failure: ABORT | CONTINUE
     commands:
       - echo command
       - echo command

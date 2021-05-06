@@ -4,8 +4,6 @@ phases:
   install:
     commands:
       - echo command install
-      - pwd
-      - ls -la
     finally:
       - echo command finally install
   pre_build:
@@ -16,12 +14,14 @@ phases:
   build:
     commands:
       - echo command build
-      - mvn clean install
+      - ls -la
+      - mvn clean package
     finally:
       - echo command finally build
   post_build:
     commands:
       - echo command post_build
+      - ls -la
     finally:
       - echo command finally post_build
 reports:

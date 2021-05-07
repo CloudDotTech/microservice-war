@@ -44,7 +44,7 @@
 	</dependencies>
 
 	<build>
-<!--		<finalName>microservice-war</finalName>-->
+		<finalName>microservice-war</finalName>
 		<plugins>
 <!--			<plugin>&lt;!&ndash; don't pack the war  &ndash;&gt;-->
 <!--				<groupId>org.apache.maven.plugins</groupId>-->

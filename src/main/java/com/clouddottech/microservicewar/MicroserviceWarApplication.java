@@ -20,8 +20,8 @@ public class MicroserviceWarApplication extends SpringBootServletInitializer {
         return application.sources(MicroserviceWarApplication.class);
     }
 
-    @RequestMapping(value = "/hi")
+    @RequestMapping(value = "/")
     public String hello() {
-        return "Hello World from Tomcat...";
+        return "Microservice War PipeLine!";
     }
 }

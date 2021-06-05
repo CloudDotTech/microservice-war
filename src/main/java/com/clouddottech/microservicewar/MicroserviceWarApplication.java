@@ -23,6 +23,6 @@ public class MicroserviceWarApplication extends SpringBootServletInitializer {
 
     @RequestMapping(value = "/")
     public String hello() {
-        return "Microservice War PipeLine!!!";
+        return "Microservice War PipeLine!";
     }
 }
